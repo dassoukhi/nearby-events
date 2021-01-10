@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  adress: MyString
+  theme: MyString
+  description: MyString
+  date: 2021-01-10 20:04:44
+  user: one
+
+two:
+  name: MyString
+  adress: MyString
+  theme: MyString
+  description: MyString
+  date: 2021-01-10 20:04:44
+  user: two
