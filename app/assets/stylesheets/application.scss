@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+@import "custom/devise_styles.css";
+@import "bootstrap";
+@import "carousel.css";
+
+#header
+{
+	overflow: visible;
+}
+
+#usericon
+{
+	padding-top: 0px;
+	padding-right: 0px;
+}

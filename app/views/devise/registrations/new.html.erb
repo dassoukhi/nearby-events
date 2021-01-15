@@ -1,0 +1,35 @@
+
+
+
+
+<div align="center" class="wrapper fadeInDown">
+
+ <!-- Login Form -->
+
+  <div id="formContent">
+    <h2>Sign up</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="fadeIn third">
+        <%= f.email_field :email, placeholder: 'Email' %>
+      </div>
+        <%= f.text_field :first_name ,  placeholder: 'First name'%>
+        <%= f.text_field :last_name , placeholder: 'Last name'%>
+        <%= f.input :admin %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', int: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %> 
+        <%= f.password_field :password_confirmation,
+                    placeholder: 'Password confirmation' %>
+
+      <div class="fadeIn fourth">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+    <% end %>
+
+    <div id="formFooter" class="devise-links">
+      <%= render "devise/shared/links", class:"underlineHover" %>
+    </div>
+
+ </div>
+</div>
