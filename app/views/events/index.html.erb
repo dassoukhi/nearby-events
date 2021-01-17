@@ -1,56 +1,89 @@
-<h1>All Events</h1>
-
-<ul>
-	<% @events.each do |event| %>
-	<li><%= link_to event.name, event_path(event) %></li>
-	<% end %>
-
-</ul>
-
-<%= link_to "Add_Event", new_event_path %>
 
 
+<div class="container" style="margin-top: 5%;">
+      <div class="row justify-content-md-center">
+        <div class="btn-group mx-auto" role="group" >
+          <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Trier par
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 
-<div id='carouselControls' class='carousel slide' data-ride='carousel'>
-      <div class='carousel-inner '>
-        <div class='carousel-item active' data-interval="1000">
-          <%= image_tag("comedie3.jpg", class: 'd-block w-100', style: 'object-fit:cover; height:600px', alt: 'Place de la comedie') %>
-          <div class='carousel-caption d-none d-sm-block py-1 b' style='background:rgba(45, 45, 45,0.7); margin-left:25%; margin-right:25%; border-radius:9px'>
-            <h5>Place de la comedie</h5>
-            <p>Au coeur de Montpellier</p>
+            <form>
+              <div class="dropdown-item">
+                <div>
+                  <span>Thème</span>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="caritatif" value="CARITATIF">
+                    <label class="form-check-label" for="caritatif">
+                      Caritatif
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="concert" value="CONCERT">
+                    <label class="form-check-label" for="concert">
+                      Concert
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="etudiant" value="ÉTUDIANT">
+                    <label class="form-check-label" for="etudiant">
+                      Étudiant
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="familial" value="FAMILIAL">
+                    <label class="form-check-label" for="familial">
+                      Familial
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="showcase" value="SHOWCASE">
+                    <label class="form-check-label" for="showcase">
+                      Showcase
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="theme[]" id="sport" value="SPORT">
+                    <label class="form-check-label" for="sport">
+                      Sport
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-check dropdown-item">
+                <input class="form-check-input" type="radio" name="passe" id="passe" value="">
+                <label class="form-check-label" for="passe">
+                  Évènement terminé
+                </label>
+              </div>
+              <button class="btn btn-success dropdown-item" type="submit" name="valider" value="valider">Valider</button>
+            </form>
+
           </div>
         </div>
-        
-        <div class='carousel-item '>
-
-          <%= image_tag("arena2.jpg", class: 'd-block w-100', style: 'object-fit:cover; height:600px', alt: 'Second slide') %>
-          
-          <div class='carousel-caption d-none d-sm-block py-1 b' style='background:rgba(45, 45, 45,0.7); margin-left:25%; margin-right:25%; border-radius:9px'>
-            <h5>Sud de France Arena</h5>
-            <p>Transpirez, lachez-vous</p>
-
-          </div>
-        </div>
-
-        <div class='carousel-item '>
-          <%= image_tag("tram1.jpg", class: 'd-block w-100', style: 'object-fit:cover; height:600px', alt: 'Third slide') %>
-
-          
-          <div class='carousel-caption d-none d-sm-block py-1 b' style='background:rgba(45, 45, 45,0.7); margin-left:25%; margin-right:25%; border-radius:9px'>
-            <h5>Rives du Lez</h5>
-            <p>Laissez-vous emporter</p>
-          </div>
-        </div>
-
       </div>
-      
-      <a class='carousel-control-prev' style='z-index:1' href='#carouselControls' role='button' data-slide='prev'>
-        <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-        <span class='sr-only'>Previous</span>
-      </a>
-
-      <a class='carousel-control-next' style='z-index:1' href='#carouselControls' role='button' data-slide='next'>
-        <span class='carousel-control-next-icon' aria-hidden='true'></span>
-        <span class='sr-only'>Next</span>
-      </a>
     </div>
+    <% @events.each do |event| %>
+    <div class='cadre mx-auto bg-white shadow mb-5'>
+              <a class='lienEvent' href='/events/<%= event.id %>'>
+                <div class='container mw-100'>
+                  <div class='row'>
+                    <div class='col-sm-6 p-0' style='height: 400px;'>
+                      <% if event.photo.attached? %>
+
+                        <%= cl_image_tag(event.photo.key, width:'100%', height: '100%' ) %>
+                      <% end %>
+                    </div>
+                    <div class='col-sm-6 p-5'>
+                      <p><%= event.date %></p>
+                      <h3><%= event.name %></h3>
+                      <br/>
+                      <h5>Localisation : <%= event.adress %></h5> <br/>
+                      <h5>Thème : <%= event.theme %> </h5><br/>
+                      <h5>Nombre de participants : <%= EventsUser.where(event_id: event.id).count %></h5>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          <% end %>  

@@ -28,18 +28,43 @@
               <li class='nav-item'>
                 <%= link_to 'Events', events_path , class: 'nav-link'%>
               </li>
-
+              <% if user_signed_in?  && current_user.admin %>
+                <li class='nav-item'>
+                  <%= link_to 'Propositions('+ String(Event.where(visible: nil).count) +')', proposition_path , class: 'nav-link'%>
+                </li>
+                <li class='nav-item'>
+                  <%= link_to 'Users('+ String(User.where(admin: nil).count) +')', member_path , class: 'nav-link'%>
+                </li>
+              <% end %>
+              <% if user_signed_in?  && !current_user.admin %>
+                <%= link_to "Add Event", new_event_path, class: 'nav-link' %>
+              <% end %>
             </ul>
 
               <form class='class="d-flex"' >
-                <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary btn-light' unless user_signed_in? %>
-                <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-info mr-2', style: "background-color: #68AFB8" unless user_signed_in? %>
-                <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-primary btn-success', method: :delete if user_signed_in? %>
+                <div class="d-flex justify-content-end">
+                  <% if user_signed_in? %>
+                    
+                  <a id='profil' class='nav-link text-light' href="/users/edit">
+                    <svg id='usericon' width='32' height='32' viewBox='0 0 20 20' fill='currentColor' >
+                      <path fill-rule='evenodd' d='M5 16s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H5zm5-6a3 3 0 100-6 3 3 0 000 6z' clip-rule='evenodd'/>
+                    </svg>
+
+                    <span id='txticon'><%= current_user.first_name %></span>
+
+                  </a>
+                  <% end %>
+
+                  <%= link_to 'Sign in', new_user_session_path, id: 'ik',class: 'btn btn-primary btn-light' unless user_signed_in? %>
+                  <%= link_to 'Sign up', new_user_registration_path, id: 'ik', class: 'btn btn-primary btn-info mr-2', style: "background-color: #68AFB8" unless user_signed_in? %>
+                  <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-primary btn-success', method: :delete if user_signed_in? %>
+                </div>
               </form>
           </div>
         </div>
       </nav>
     </header>
+    <h1>test</h1>
     <%= yield %>
                                              
     <p class="notice"><%= notice %></p>

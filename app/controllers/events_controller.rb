@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-	before_action :set_event , only: [:show, :edit, :update]
+	before_action :set_event , only: [:show, :edit, :update, :destroy]
 
     def index
         @events = policy_scope(Event)
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     	authorize @event
     end
     def show
+        
     end
     def create
     	@event = Event.new(event_params)
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
     	@event.user = current_user
 
     	if @event.save
-    		redirect_to event_path(@event)
+    		redirect_to events_path
 		else
     		render 'new'
     	end
@@ -31,6 +32,17 @@ class EventsController < ApplicationController
     	redirect_to event_path(@event)
     end
 
+    def destroy
+        @event.destroy
+      
+        if current_user.admin?
+          redirect_to proposition_path
+
+        else
+            redirect_to events_path
+        end
+    end
+
     private
     def set_event
     	@event = Event.find(params[:id])
@@ -39,6 +51,6 @@ class EventsController < ApplicationController
 
     private 
     def event_params
-    	params.require(:event).permit(:name, :adress, :theme, :description, :date, :photo)
+    	params.require(:event).permit(:name, :adress, :theme, :description, :date, :photo, :visible)
     end
 end

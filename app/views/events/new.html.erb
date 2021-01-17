@@ -1,13 +1,59 @@
-<h1>New Event</h1>
 
 <%= simple_form_for @event do |f| %>
-
-	<%= f.input :name%>
-	<%= f.input :adress%>
-	<%= f.input :theme%>
-	<%= f.input :description%>
-	<%= f.input :date%>
-	<%= f.input :photo, as: :file%>
+	<div align="center">
+		<h1>New Event</h1>
+		<label>Name</label>
+		<div class="form-group col-md-7">
+	<%= f.text_field :name , as: :text , :input_html => { :rows => 2 , :style => 'width: 100%'}, required: true %>
+	</div>
+	<label>Adress</label>
+	<div class="form-group col-sm-7">
+	<%= f.text_field :adress, as: :text , :input_html => { :rows => 2 , :style => 'width: 100%'}, required: true, class: "form-control" %>
+	</div>
+	<!-- 	<label for="theme">Catégorie/Thème</label>
+		<select id="theme" class="form-control" required="required" name="theme">
+			<option selected>--</option>
+			<option>Caritatif</option>
+			<option>Concert</option>
+			<option>Étudiant</option>
+			<option>Showcase</option>
+			<option>Sport</option>
+		</select -->
+	<div class="form-group col-md-6">
+		<label>Theme</label>
+		<select class="form-select" aria-label="Default select example"  name="event[theme]" id="event_theme">
+		  <option>Caritatif</option>
+		  <option>Concert</option>
+		  <option>Étudiant</option>
+		  <option>Showcase</option>
+		  <option>Sport</option>
+		  <option>Fête foraine</option>
+		  <option>Randonée</option>
+		  <option>Orchestre / Musique</option>
+		  <option>Football</option>
+		  <option>Chasse au trésor</option>
+		  <option>Shooting photo</option>
+		  <option>Jeux vidéos</option>
+		  <option>Conférence</option>
+		  <option>Cinéma</option>
+		  <option>Pool Party</option>
+		</select>
+	</div>
+	<div class="form-group col-sm-6" align="center" >
+		<label>Description</label>
+		<textarea class="form-control" name="event[description]" id="event_description" rows="3"></textarea>
+	</div>
+<div class="form-group col-md-4">
+	<label>Date & Heure</label><br>
+	<%= f.datetime_field :date, :input_html => { :rows => 2 , :style => 'width: 100%'}, required: true%>
+</div>
+<br>
+<div class="form-group col-md-4">
+	<%= f.file_field :photo, as: :file, accept:'image/*', :input_html => { :rows => 2 , :style => 'width: 100%'}, required: true %>
+</div>
+<br>
+<div class="form-group col-md-4">
 	<%= f.submit %>
+	</div>
 	
 <% end %>

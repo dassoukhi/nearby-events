@@ -17,7 +17,6 @@
       </div>
         <%= f.text_field :first_name ,  placeholder: 'First name'%>
         <%= f.text_field :last_name , placeholder: 'Last name'%>
-        <%= f.input :admin %>
         <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', int: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %> 
         <%= f.password_field :password_confirmation,
                     placeholder: 'Password confirmation' %>

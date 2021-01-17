@@ -8,4 +8,11 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
   end
+
+  def proposition
+  	@events = Event.where(visible: nil)
+  end
+  def member
+    @users = User.where(admin: nil)
+  end
 end

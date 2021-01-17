@@ -1,7 +1,7 @@
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(visible: true)
     end
   end
   def new?
@@ -14,13 +14,13 @@ class EventPolicy < ApplicationPolicy
 	new?
   end
   def edit?
-	record.user == user
+	record.user == user || user.admin
   end
   def update?
 	edit?  
   end
 
   def destroy?
-  	user.admin
+  	true
   end
 end
