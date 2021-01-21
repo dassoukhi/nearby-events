@@ -10,15 +10,7 @@
 	<div class="form-group col-sm-7">
 	<%= f.text_field :adress, as: :text , :input_html => { :rows => 2 , :style => 'width: 100%'}, required: true, class: "form-control" %>
 	</div>
-	<!-- 	<label for="theme">Catégorie/Thème</label>
-		<select id="theme" class="form-control" required="required" name="theme">
-			<option selected>--</option>
-			<option>Caritatif</option>
-			<option>Concert</option>
-			<option>Étudiant</option>
-			<option>Showcase</option>
-			<option>Sport</option>
-		</select -->
+
 	<div class="form-group col-md-6">
 		<label>Theme</label>
 		<select class="form-select" aria-label="Default select example"  name="event[theme]" id="event_theme">
@@ -27,7 +19,7 @@
 		  <option>Étudiant</option>
 		  <option>Showcase</option>
 		  <option>Sport</option>
-		  <option>Fête foraine</option>
+		  <option>Festival</option>
 		  <option>Randonée</option>
 		  <option>Orchestre / Musique</option>
 		  <option>Football</option>

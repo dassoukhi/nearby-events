@@ -1,7 +1,7 @@
 class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(visible: true)
+      scope
     end
   end
   def new?

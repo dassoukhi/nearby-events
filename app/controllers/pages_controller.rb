@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    @events = policy_scope(Event)
+    @events = policy_scope(Event.search(nil))
   end
 
   def dashboard
@@ -10,9 +10,21 @@ class PagesController < ApplicationController
   end
 
   def proposition
-  	@events = Event.where(visible: nil)
+
+    if current_user.admin?
+      @events = Event.where(visible: nil)
+    else
+      redirect_to root_path
+    end
+  	
   end
   def member
-    @users = User.where(admin: nil)
+    
+    if current_user.admin?
+      @users = User.where(admin: nil)
+    else
+      redirect_to root_path
+    end
+    
   end
 end

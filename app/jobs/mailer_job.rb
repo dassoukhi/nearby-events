@@ -1,10 +1,10 @@
 class MailerJob < ApplicationJob
   queue_as :default
 
-  def perform
+  def perform(user, message)
   	puts "tache commencée"
-  	sleep 5
-  	puts "tache commencée"
-    # Do something later
+    SendMailer.with(user: user, message: message).submission.deliver
+    puts "tache finie"
   end
+
 end
