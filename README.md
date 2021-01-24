@@ -1,24 +1,18 @@
 # NEARBY-EVENTS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Nearby-Events est une application web permettant la publication d’événements culturels, sociales ou sportifs dans un département donné.
 
-Things you may want to cover:
+Il possède trois actions principales sous forme de rôles : 
 
-* Ruby version
+- Un rôle administrateur permet de :   
+    * Valider, rejeter ou supprimer un événement ajouté par un contributeur.   
+    * Gérer les comptes d'utilisateurs
+    
+- Un rôle contributeur permet :  
+    * D'ajouter ou supprimer un événement
+    
+- Un rôle visiteur permet de :  
+    * S'inscrire ou désinscrire   
+    * Participer à un ou plusieurs événements  
+    * Effectuer des recherches d'événements par thème ( sans authentification )      
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
