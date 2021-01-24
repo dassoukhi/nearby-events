@@ -17,7 +17,7 @@ Il possède trois actions principales sous forme de rôles : 
     * Effectuer des recherches d'événements par thème ( sans authentification )
 
 # Job
-   * un job mailer est implementé dans ce projet, il consiste à envoyer un mail automatique à l'utilisateur après qu'un admin a accepté ou rejeté son événement(user).
+   * un job mailer est implementé dans ce projet, il consiste à envoyer un mail automatique à l'utilisateur après qu'un admin à accepter ou rejeter son événement(user).
 # Pour exécuter le projet sur votre machine
 Après avoir cloner le projet sur votre machine, déplacez vous sur la racine du projet dans votre terminal  ensuite faites : 
    * rails db:migrate : pour la migration de la BDD  
