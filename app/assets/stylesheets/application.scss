@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import "custom/devise_styles.css";
+@import "custom/devise_styles.scss";
 @import "bootstrap";
-@import "carousel.css";
+@import "carousel.scss";
 
 .cadre{
 	width: 87%;

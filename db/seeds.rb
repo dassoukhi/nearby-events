@@ -147,33 +147,3 @@ event10 = Event.new(:name => "Randonée au parc Misouris",
 		 )
 event10.photo.attach(io: File.open("#{Rails.root}/app/assets/images/gaming.jpg"), filename: 'gaming.jpg')
 event10.save
-	
-
-# puts "he"
-
-
-# event = Event.new(
-# 		 :name => "Randonée au parc Misouris", 
-# 		 :adress => "Gentilly", 
-# 		 :theme => "sport",
-# 		 :description => "blabla", 
-# 		 :date => "2021-01-15 19:40:00",
-# 		 :user_id => 6
-# 		)
-# event.photo.attach(
-# 	    io: File.open("#{Rails.root}/app/assets/images/festival.jpg"),
-# 	    filename: 'festival.jpg'
-#   )
-# event.save
-# puts event.photo.attached?		
-
-
-# User.create({
-# 		:email => "quentin@gmail.com", 
-# 		:password => "111111", 
-# 		:password_confirmation => "111111",
-# 		 :admin => nil, 
-# 		 :first_name => "Quentin",
-# 		  :last_name => "guontaily"
-# 		})
-
