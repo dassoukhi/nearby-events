@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     	@event.user = current_user
 
     	if @event.save
-    		redirect_to new_event_path , notice: "Votre événement sera exmaminé par un Admin avant sa publication, un mail vous sera envoyé par la suite."
+    		redirect_to new_event_path , notice: "Votre événement sera examiné par un Admin avant sa publication, un mail vous sera envoyé par la suite."
 		else
     		render 'new'
     	end

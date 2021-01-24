@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     if current_user.admin?
       @events = Event.where(visible: nil)
     else
-      redirect_to root_path
+      redirect_to root_path, notice: "Vous n'avez pas l'autorisation requise pour acceder à cette page"
     end
   	
   end
@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     if current_user.admin?
       @users = User.where(admin: nil)
     else
-      redirect_to root_path
+      redirect_to root_path, notice: "Vous n'avez pas l'autorisation requise pour acceder à cette page"
     end
     
   end
