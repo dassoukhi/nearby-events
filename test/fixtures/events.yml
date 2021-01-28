@@ -1,17 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  adress: MyString
-  theme: MyString
-  description: MyString
+Randonnée:
+  name: Randonnée
+  adress: Paris
+  theme: sport
+  description: blablabla
   date: 2021-01-10 20:04:44
-  user: one
+  user: malik
 
-two:
-  name: MyString
-  adress: MyString
-  theme: MyString
-  description: MyString
-  date: 2021-01-10 20:04:44
-  user: two
+# two:
+#   name: MyString
+#   adress: MyString
+#   theme: MyString
+#   description: MyString
+#   date: 2021-01-10 20:04:44
+#   user: two
