@@ -34,7 +34,8 @@ class EventsController < ApplicationController
         after = @event.visible
         if !before && after
             message = "Felicitation, votre evenement vient d'être accepter et publier sur notre site."
-            SendMailer.with(user: @event.user, message: message).submission.deliver_later
+            MailerJob.perform_later(@event.user, message)
+            # SendMailer.with(user: @event.user, message: message).submission.deliver_later
         end
     	redirect_to event_path(@event)
     end
@@ -42,7 +43,8 @@ class EventsController < ApplicationController
     def destroy
         message = "Votre evenement à été rejeté car il n'est pas conforme avec notre politique d'utilisation."
         if !@event.visible?
-            SendMailer.with(user: @event.user, message: message).submission.deliver_later
+            MailerJob.perform_later(@event.user, message)
+            # SendMailer.with(user: @event.user, message: message).submission.deliver_later
         end
         EventsUser.where(event_id: @event.id).destroy_all
         @event.destroy
