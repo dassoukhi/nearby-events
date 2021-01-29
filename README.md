@@ -24,4 +24,7 @@ Après avoir cloner le projet sur votre machine, déplacez vous sur la racine 
    * rails db:seed :  pour la génération de jeu des données   
    * rails server : pour lancer le serveur 
 Vous pouvez ensuite aller sur le lien http://localhost:3000 pour visiter le site, vous pouvez vous baser sur le jeu des données fournies pour vous connecter en tant qu'admin ou simple utilisateur. 
-Vous pouvez aussi créer votre propre compte pour faire votre test.
+# Tests
+   * Lancer le test system avec la commande : rails test:system
+   * Lancer le test unitaire avec la commande : rails test:models
+   
