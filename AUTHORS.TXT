@@ -1,11 +1,12 @@
 Saleh DASSOUKHI : 
 - Développement Back-end(CRUD, authentification/autorisation, sévices, job, recherche filtrée, gem, seed)
-- Développement Front-end
+- Développement Front-end(html, CSS, Bootstrap)
+- Test unitaire & test system
 - Mise en place de la BDD
 - Représentation des tables sur un diagramme
 - Déploiement sur heroku
 - Rédaction du README
-- Test unitaire & test system
+
 
   
 
