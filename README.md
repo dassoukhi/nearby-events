@@ -27,4 +27,5 @@ Vous pouvez ensuite aller sur le lien http://localhost:3000 pour visiter le site
 # Tests
    * Lancer le test system avec la commande : rails test:system
    * Lancer le test unitaire avec la commande : rails test:models
-   
+ # Lien Heroku  
+   https://nearby-events-rails.herokuapp.com/
