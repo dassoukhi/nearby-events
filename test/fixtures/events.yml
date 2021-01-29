@@ -7,6 +7,7 @@ Randonnée:
   description: blablabla
   date: 2021-01-10 20:04:44
   user: malik
+  visible: true
 
 # two:
 #   name: MyString

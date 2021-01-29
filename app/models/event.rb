@@ -8,10 +8,8 @@ class Event < ApplicationRecord
   		events = Event.where(theme: search, visible: true)
 
   		if events.count > 0
-  			puts "oui"
   			Event.where(theme: search, visible: true)
   		else
-  			puts "non"
   			Event.where(visible: true)	
 
   		end
