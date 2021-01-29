@@ -17,12 +17,12 @@ gem 'sidekiq-failures'
 # Bootstrap est une collection d'outils utiles à la création du design et de la mise en page
 gem 'bootstrap', '~> 5.0.0.beta1'
 
-#gem 'pg'
+gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
